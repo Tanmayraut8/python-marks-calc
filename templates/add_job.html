@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-info text-dark fw-bold">Add New Job Notification</div>
+            <div class="card-body p-4">
+                <form action="{{ url_for('add_job') }}" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Job Notification Title</label>
+                        <input type="text" name="title" class="form-control" placeholder="e.g. MPSC 2026">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Department</label>
+                        <input type="text" name="dept" class="form-control" placeholder="e.g. Revenue Dept">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Current Status</label>
+                        <select name="status" class="form-select">
+                            <option value="Active">Active</option>
+                            <option value="Closing Soon">Closing Soon</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Days Left to Apply</label>
+                        <input type="number" name="days_left" class="form-control" placeholder="e.g. 15">
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-info fw-bold">Save Notification</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

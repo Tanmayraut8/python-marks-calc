@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border">
+    <div class="container-fluid py-3">
+        <h1 class="display-5 fw-bold text-dark">Welcome to {{ project.name }}</h1>
+        <p class="col-md-8 fs-5 text-secondary">{{ project.description }}</p>
+        <a href="{{ url_for('records') }}" class="btn btn-info text-dark fw-bold btn-lg px-4">Explore Supported Job Portals</a>
+    </div>
+</div>
+
+<h3 class="mb-4 fw-bold">Active Portal Scrapers</h3>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for job in jobs[:3] %}
+    <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="badge {{ job.badge_class }}">{{ job.status }}</span>
+                    <small class="text-muted">{{ job.dept }}</small>
+                </div>
+                <h5 class="card-title fw-bold">{{ job.title }}</h5>
+                <p class="card-text text-secondary">Compatible with browser extension for direct client-side fill.</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
